@@ -1,7 +1,7 @@
 package bomberman.ui;
 
 /**
- * Created by arek on 28.03.15.
+ *      Useful to switch between panes.
  */
 public enum UIState {
 

@@ -14,8 +14,6 @@ import static bomberman.ui.UIState.*;
 @Component
 public class MenuPaneController implements NodeController {
 
-//    private static final Logger LOG = LoggerFactory.getLogger(MenuPaneController.class);
-
     @Autowired
     private MenuContext menuContext;
 
@@ -36,8 +34,6 @@ public class MenuPaneController implements NodeController {
 
     @FXML
     public void onExitButtonClicked() {
-
-//        menuContext.uiStateProperty().setValue(IN_GAME);
 
         System.exit(0);
     }
