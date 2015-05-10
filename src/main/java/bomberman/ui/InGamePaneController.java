@@ -1,7 +1,8 @@
 package bomberman.ui;
 
 
-import bomberman.Game;
+import bomberman.GameLoop;
+import bomberman.GameLoopMultiThread;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -18,6 +19,9 @@ public class InGamePaneController implements NodeController {
     @Autowired
     private MenuContext menuContext;
 
+    @Autowired
+    private GameLoop gameLoop;
+
     @FXML
     private Pane inGamePane;
 
@@ -29,20 +33,18 @@ public class InGamePaneController implements NodeController {
 
     @FXML
     public void initialize() {
-        Game game = new Game();
-        game.start();
+        gameLoop.start();
     }
 
     @FXML
     public void onBackToMenuClicked() {
-
+        gameLoop.stop();
         menuContext.uiStateProperty().setValue(MENU);
     }
 
     @NotNull
     @Override
     public Node getNode() {
-
         return inGamePane;
     }
 }

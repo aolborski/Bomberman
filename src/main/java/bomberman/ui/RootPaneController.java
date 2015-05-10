@@ -36,23 +36,17 @@ public class RootPaneController {
     public void init() {
 
         menuContext.uiStateProperty().addListener((observable, oldValue, newValue) -> {
-
             NodeController currentStateController = stateController(oldValue);
             NodeController newStateController = stateController(newValue);
 
             currentStateController.getNode().setVisible(false);
             newStateController.getNode().setVisible(true);
-
         });
-
-
     }
 
     @NotNull
     private NodeController stateController(UIState uiState) {
-
         return uiState == MENU ? menuPaneController : inGamePaneContoller;
-
     }
 
 }

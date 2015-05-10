@@ -28,20 +28,17 @@ public class MenuPaneController implements NodeController {
 
     @FXML
     public void onStartGameButtonClicked() {
-
         menuContext.uiStateProperty().setValue(IN_GAME);
     }
 
     @FXML
     public void onExitButtonClicked() {
-
         System.exit(0);
     }
 
     @NotNull
     @Override
     public Node getNode() {
-
         return menuPane;
     }
 }

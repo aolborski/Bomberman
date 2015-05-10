@@ -57,3 +57,6 @@
 .menu-button .label { /* Workaround for RT-20015 */
     -fx-text-fill: -fx-text-base-color;
 }
+.game-world-pane {
+    -fx-background-color: #89906fff;
+}

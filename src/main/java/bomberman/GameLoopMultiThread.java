@@ -3,12 +3,10 @@ package bomberman;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.awt.*;
-
 /**
  * source: https://www.youtube.com/watch?v=gHh_96Ss1AI
  */
-public class Game extends Canvas implements Runnable{
+public class GameLoopMultiThread implements Runnable{
 
     private static final long serialVersionUID = 1L;
 
@@ -16,7 +14,7 @@ public class Game extends Canvas implements Runnable{
 
     private Thread thread;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Game.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GameLoopMultiThread.class);
 
     //TODO: Guy has this method private
     public synchronized void start() {
