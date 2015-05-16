@@ -3,6 +3,7 @@ package bomberman.ecs.entity;
 import bomberman.ecs.component.Component;
 import bomberman.error.EntityHasNotAnyComponent;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.UUID;
@@ -56,5 +57,12 @@ public class Entity {
 
     public <T extends Component> void addComponent(@NotNull final T component) {
         ENTITY_MANAGER.putComponent(entityId, component);
+    }
+
+    @Nullable
+    public <T extends Component> T removeComponent(@NotNull final Class<? extends Component>
+                                                           componentType) {
+        return (!ENTITY_MANAGER.containsComponent(entityId, componentType)) ? null :
+                ENTITY_MANAGER.removeComponent(entityId, (Class<T>) componentType);
     }
 }

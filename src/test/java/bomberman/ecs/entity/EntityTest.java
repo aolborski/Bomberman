@@ -70,11 +70,23 @@ public class EntityTest {
         assertFalse(ENTITY_MANAGER.containsComponent(entity.getId(), MyTestComponent.class));
     }
 
+    @Test
+    public void removeComponentInfluenceToEntityManagerTest() {
+        entity.addComponent(new TestComponent(13));
+        entity.addComponent(new AnotherTestComponent());
+        entity.removeComponent(AnotherTestComponent.class);
+        assertTrue(ENTITY_MANAGER.containsComponent(entity.getId(), TestComponent.class));
+        assertFalse(ENTITY_MANAGER.containsComponent(entity.getId(), AnotherTestComponent.class));
+    }
 
-
-//    @Test
-//    public void removeComponentTest() {
-//
-//
-//    }
+    @Test
+    public <T extends Component> void removeComponentReturnValueTest() {
+        entity.addComponent(new TestComponent(13));
+        entity.addComponent(new AnotherTestComponent());
+        T component = entity.removeComponent(TestComponent.class);
+        assertEquals(component, new TestComponent(13));
+        assertNotEquals(component, new TestComponent(7));
+        assertNull(entity.removeComponent(TestComponent.class));
+        assertNotNull(entity.removeComponent(AnotherTestComponent.class));
+    }
 }

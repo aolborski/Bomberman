@@ -2,6 +2,7 @@ package bomberman.ecs;
 
 import bomberman.ecs.component.AnotherTestComponent;
 import bomberman.ecs.component.Component;
+import bomberman.ecs.component.MyTestComponent;
 import bomberman.ecs.component.TestComponent;
 import bomberman.error.DataException;
 import org.junit.After;
@@ -41,7 +42,8 @@ public class EntityManagerTest {
     public void putComponentTest() {
         ENTITY_MANAGER.putComponent(entityID, new TestComponent(13));
         ENTITY_MANAGER.putComponent(entityID, new TestComponent(7));
-        assertTrue(ENTITY_MANAGER.getComponent(entityID, TestComponent.class).primaryKey == 7);
+        assertEquals(ENTITY_MANAGER.getComponent(entityID, TestComponent.class), new
+                TestComponent(7));
     }
 
     @Test
@@ -122,6 +124,23 @@ public class EntityManagerTest {
 
         assertTrue(ENTITY_MANAGER.containsEntity(entityID));
         assertFalse(ENTITY_MANAGER.containsEntity(UUID.randomUUID()));
+    }
+
+    @Test
+    public void getAllEntietiesPossesingComponents() {
+        UUID entityID_2 = UUID.randomUUID();
+        UUID entityID_3 = UUID.randomUUID();
+
+        ENTITY_MANAGER.putComponent(entityID, new TestComponent(13));
+        ENTITY_MANAGER.putComponent(entityID, new AnotherTestComponent());
+        ENTITY_MANAGER.putComponent(entityID, new MyTestComponent());
+        ENTITY_MANAGER.putComponent(entityID_2, new TestComponent(13));
+        ENTITY_MANAGER.putComponent(entityID_2, new AnotherTestComponent());
+        ENTITY_MANAGER.putComponent(entityID_3, new TestComponent(13));
+
+        assertTrue(ENTITY_MANAGER.getAllEntitiesPossessingComponent(TestComponent.class).size() == 3);
+        assertTrue(ENTITY_MANAGER.getAllEntitiesPossessingComponent(AnotherTestComponent.class).size() == 2);
+        assertTrue(ENTITY_MANAGER.getAllEntitiesPossessingComponent(MyTestComponent.class).size() == 1);
     }
 
 }

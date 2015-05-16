@@ -46,7 +46,7 @@ public class EntityManager {
     @Nullable
     public <T extends Component> T getComponent(@NotNull final UUID entityID, @NotNull final
     Class<T> componentType) {
-        return(ENTITY_MANAGER.containsComponent(entityID, componentType)) ? (T) componentStores
+        return (ENTITY_MANAGER.containsComponent(entityID, componentType)) ? (T) componentStores
                 .get(componentType).get(entityID) : null;
     }
 
@@ -98,14 +98,19 @@ public class EntityManager {
     }
 
     /**
-     *  size()
-     *  replace()
-     *  putIfAbsent()
-     *  loadFromGameWorld()
+     * size()
+     * replace()
+     * putIfAbsent()
+     * loadFromGameWorld()
      */
 
     protected boolean isEmpty() {
         return componentStores.isEmpty();
     }
 
+    @NotNull
+    public <T extends Component> Set<UUID> getAllEntitiesPossessingComponent
+            (@NotNull final Class<T> componentType) {
+        return componentStores.get(componentType).keySet();
+    }
 }

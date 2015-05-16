@@ -20,9 +20,7 @@ public class GameWorldPaneController implements Iterable<Node> {
 
     @FXML
     public void initialize() {
-        gameWorldPane.setOnMouseClicked(event -> {
-            LOGGER.debug("gameWorldPane clicked");
-        });
+        gameWorldPane.setOnMouseClicked(event -> LOGGER.debug("gameWorldPane clicked"));
     }
 
     public Pane getGameWorldPane() {

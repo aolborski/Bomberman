@@ -26,9 +26,6 @@ public class InGamePaneController implements NodeController {
     private Pane inGamePane;
 
     @FXML
-    private Pane gameWorldPane;
-
-    @FXML
     private Button backToMenuButton;
 
     @FXML

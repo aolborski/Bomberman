@@ -13,29 +13,27 @@ import static javafx.scene.input.KeyCombination.NO_MATCH;
 import static javafx.stage.StageStyle.UNDECORATED;
 
 public class Main extends Application {
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-
+    public void start(Stage stage) throws Exception {
         ApplicationContext appContext = new ClassPathXmlApplicationContext("bomberman/meta-info/bomberman-spring-context.xml");
-        BmFxmlLoader loader = appContext.getBean(BmFxmlLoader.class);
+        FxmlLoader loader = appContext.getBean(FxmlLoader.class);
         Parent root = loader.load();
 
-        primaryStage.setTitle("Bomberman");
-        primaryStage.initStyle(UNDECORATED);
-        primaryStage.centerOnScreen();
+        stage.setTitle("Bomberman");
+        stage.initStyle(UNDECORATED);
+        stage.centerOnScreen();
 
         Scene scene = new Scene(root, 1280, 800);
         scene.getStylesheets().add("bomberman/ui/skins/bomberman-new.css");
         scene.setCursor(new ImageCursor(new Image("bomberman/images/bombermanCursor.png")));
 
-        primaryStage.setFullScreenExitKeyCombination(NO_MATCH);
-        primaryStage.setFullScreen(true);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
+        stage.setFullScreenExitKeyCombination(NO_MATCH);
+        stage.setFullScreen(true);
+        stage.setScene(scene);
+        stage.show();
     }
 }

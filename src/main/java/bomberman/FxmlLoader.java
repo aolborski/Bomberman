@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 import java.net.MalformedURLException;
 
 @Component("fxmlLoader")
-public class BmFxmlLoader extends FXMLLoader implements ApplicationContextAware {
+public class FxmlLoader extends FXMLLoader implements ApplicationContextAware {
 
-  private static final Logger LOG = LoggerFactory.getLogger(BmFxmlLoader.class);
+  private static final Logger LOG = LoggerFactory.getLogger(FxmlLoader.class);
 
-  public BmFxmlLoader() throws MalformedURLException {
+  public FxmlLoader() throws MalformedURLException {
 
-    super(BmFxmlLoader.class.getResource("/bomberman/ui/RootPane.fxml"));
+    super(FxmlLoader.class.getResource("/bomberman/ui/RootPane.fxml"));
   }
 
   @Override
