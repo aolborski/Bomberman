@@ -6,7 +6,7 @@
 <BorderPane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
             xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="bomberman.ui.MenuPaneController">
+            fx:controller="bomberman.MainMenuController">
     <top>
         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="79.0" prefWidth="1322.0"
                text="BOMBERMAN" BorderPane.alignment="CENTER"/>
@@ -30,11 +30,10 @@
             </rowConstraints>
             <children>
                 <Button fx:id="exitButton" alignment="CENTER" mnemonicParsing="false"
-                        onAction="#onExitButtonClicked" onMouseClicked="#onExitButtonClicked"
+                        onMouseClicked="#onExitButtonClicked"
                         prefHeight="70.0" prefWidth="460.0" text="Exit" GridPane.halignment="CENTER"
                         GridPane.rowIndex="3" GridPane.valignment="CENTER"/>
                 <Button fx:id="startGameButton" alignment="CENTER" mnemonicParsing="false"
-                        onAction="#onStartGameButtonClicked"
                         onMouseClicked="#onStartGameButtonClicked" prefHeight="70.0"
                         prefWidth="460.0" text="Start Game" GridPane.halignment="CENTER"
                         GridPane.rowIndex="1" GridPane.valignment="CENTER"/>

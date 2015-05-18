@@ -5,7 +5,7 @@
 <Pane fx:id="inGamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
       minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" visible="false"
       xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="bomberman.ui.InGamePaneController">
+      fx:controller="bomberman.InGameController">
     <children>
         <GridPane layoutY="-1.0" prefHeight="800.0" prefWidth="1280.0">
             <columnConstraints>
@@ -27,7 +27,6 @@
                         GridPane.valignment="CENTER"/>
             </children>
 
-            <fx:include source="GameWorldPane.fxml"/>
         </GridPane>
     </children>
 </Pane>
